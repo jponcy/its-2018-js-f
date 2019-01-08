@@ -38,6 +38,122 @@
     </p>
 
     <script>
+        function hello1()
+        { alert('Hello world') }
+
+        function hello2()
+        { alert('Bonjour ' + prompt('Quel est votre nom ?')) }
+
+        function hello3IfBad() {
+            var name = prompt('Quel est votre nom ?')
+
+            if (name === 'caesar') name = 'monde'
+            if (name === 'césar') name = 'monde'
+
+            alert('Bonjour ' + name)
+        }
+
+        function hello3If() {
+            var name = prompt('Quel est votre nom ?')
+
+            if (name === 'caesar' || name === 'césar') {
+                name = 'monde'
+            }
+
+            alert('Bonjour ' + name)
+        }
+
+        function hello3Includes() {
+            var name = prompt('Quel est votre nom ?')
+
+            if (['caesar', 'césar'].includes(name)) {
+                name = 'monde'
+            }
+
+            /*
+            if (['caesar', 'césar'].includes(name)) {
+                alert('Bonjour monde')
+            } else {
+                alert('Bonjour ' + name)
+            }
+            */
+
+            alert('Bonjour ' + name)
+        }
+
+        function hello3Switch() {
+            var name = prompt('Quel est votre nom ?')
+
+            switch (name) {
+                case 'caesar':
+                case 'césar':
+                    name = 'monde';
+                    break;
+            }
+
+            alert('Bonjour ' + name)
+        }
+
+        function hello3Reg() {
+            var name = prompt('Quel est votre nom ?')
+
+            if (name.match(/^c(?:ae|é)sar$/)) {
+                name = 'monde'
+            }
+
+            alert('Bonjour ' + name)
+        }
+
+        function hello4Dorian() {
+            var name;
+
+            do {
+                name = (prompt('Quel est votre nom ?') || '').trim()
+            // } while (name === '');
+            } while (!name);
+
+            alert('Bonjour ' + name)
+        }
+
+        function hello4DorianOneLine() {
+            var name;
+
+            while (!(name = (prompt('Quel est votre nom ?') || '').trim()));
+
+            alert('Bonjour ' + name)
+        }
+
+        function hello4Exploded() {
+            var notFound = true;
+
+            while (notFound) {
+                // if (name != null && (name = name.trim()) !== '') {
+                // }
+
+                var name = prompt('Quel est votre nom ?')
+
+                if (name != null) {
+                    name = name.trim()
+
+                    if (name !== '') {
+                        notFound = false
+                    }
+                }
+            }
+
+            alert('Bonjour ' + name)
+        }
+
+        function hello4Reg() {
+            var notFound = true;
+
+            do {
+                var name = prompt('Quel est votre nom ?')
+            } while(!name || name.match(/^\s+$/));
+
+            alert('Bonjour ' + name.trim())
+        }
+
     </script>
 </body>
 </html>
