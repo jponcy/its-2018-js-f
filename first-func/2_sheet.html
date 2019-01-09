@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TP sheet</title>
+</head>
+<body>
+    <h1>Instructions</h1>
+
+    <p>Le but de ce TP est d'afficher en sortie console un ensemble de chiffres cumulées. Nous demanderons à l'utilisateur de saisir un chiffre, puis on affichera : la somme, le produit, la moyenne. Ces calculs seront fait avec le chiffre saisie, ainsi que tous les anciens déjà saisies.</p>
+
+    <p>Exemple :
+        <br>$ 3
+        <br>> somme : 3
+        <br>> produit : 3
+        <br>> moyenne : 3
+
+        <br>$ 2
+        <br>> somme : 5
+        <br>> produit : 6
+        <br>> moyenne : 2.5
+
+        <br>$ 10
+        <br>> somme : 15
+        <br>> produit : 60
+        <br>> moyenne : 5
+    </p>
+
+    <script>
+        var nb;
+        var values = [];
+
+        while (true) {
+            values.push(parseInt(prompt('Donner un chiffre')));
+
+            var sum = values.reduce((acc, e) => acc + e)
+
+            console.log('somme : '   + sum)
+            console.log('produit : ' + values.reduce((acc, e) => acc * e))
+            console.log('moyenne : ' + (sum / values.length))
+
+            // values.reduce((acc, e, i, list) => {
+            //     var result = acc + e;
+
+            //     if (i === list.length - 1) {
+            //         result /= list.length;
+            //     }
+
+            //     return result;
+            // })
+        }
+
+        // OR
+
+        var sum;
+        var prod;
+
+        while (true) {
+            values.push(parseInt(prompt('Donner un chiffre')));
+            sum  = 0;
+            prod = 1;
+
+            values.forEach(elt => {
+                sum  += elt;
+                prod *= elt;
+            })
+
+            console.log('somme : '   + sum)
+            console.log('produit : ' + prod)
+            console.log('moyenne : ' + (sum / values.length))
+        }
+
+    </script>
+</body>
+</html>

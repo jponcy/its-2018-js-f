@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TP forEach/map/reduce/filter</title>
+</head>
+<body>
+    <p>Créer des fonctions permettant de simuler le comportement des fonctions : forEach, map, filter et reduce. On attendra simplement le tableau en premier paramètre.
+        <br>
+        Exemples d'utilisations prévues: <dl>
+            <dt>forEach([1, 2, 3], v => console.log(v))</dt>
+            <dd>affiche 1, 2, 3 à chaque fois à la ligne</dd>
+
+            <dt>forEach(map([1, 2, 3], v => v ** 2), v => console.log(v))</dt>
+            <dd>affiche 1, 4, 9 à chaque fois à la ligne</dd>
+
+            <dt>map([1, 2, 3], (_, i) => i * 3)</dt>
+            <dd>retourne 0, 3, 6</dd>
+
+            <dt>map([1, 2, 3], (v, i) => i * v)</dt>
+            <dd>retourne [0, 2, 6]</dd>
+
+            <dt>filter([1, 2, 3], (_, i, list) => list.includes(i))</dt>
+            <dd>retourne [1, 2]</dd>
+
+            <dt>reduce([1, 2, 3], (acc, v) => acc + v)</dt>
+            <dd>retourne 6</dd>
+
+            <dt>reduce([1, 2, 3], (acc, v, i) => acc + (i || 1) * v)</dt>
+            <dd>retourne 9</dd>
+        </dl>
+    </p>
+</body>
+</html>

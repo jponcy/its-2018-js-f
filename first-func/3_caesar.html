@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>TP Caesar</title>
+</head>
+
+<body>
+  <h1>Instruction</h1>
+
+  <p>Le but de ce TP est de coder une fonction permettant de réaliser l'algorithme de caesar. Cet algorithme ce
+    contente de modifier les mettres en ajouter un indice pour obtenir une lettre plus loin dans l'alphabet avec un
+    nombre déterminé à l'avance.</p>
+  <p>Par exemple, si on choisi une clef de 3 ; 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' deviendrait 'DEFGHIJKLMNOPQRSTUVWXYZABC'.</p>
+  <p>Dans un second temps, nous demanderons à l'utilisateur de choisir sa clef. Puis on lui demandera des éléments à
+    convertir (que l'on convertira) jusqu'à qu'il est saisie "exit" comme message à traduire.</p>
+
+  <script>
+    // var caesar = function (text, key) {
+    var caesar = (text, key) => text
+        .split('')
+        .map((c, i) => {
+          if (c.match(/[a-z]/i)) {
+            var code = text.charCodeAt(i);
+            if ((code >= 65) && (code <= 90)) c = String.fromCharCode(((code - 65 + key) % 26) + 65);
+            else if ((code >= 97) && (code <= 122)) c = String.fromCharCode(((code - 97 + key) % 26) + 97);
+          }
+
+          return c;
+        })
+        .join('');
+
+    // var caesarInv = function (text, key) {
+    //     return caesar(text, key * -1);
+    // }
+    var caesarInv = (text, key) => caesar(text, key * -1);
+
+    function process() {
+      var text;
+
+      while ((text = prompt('votre texte')) != 'exit') {
+        var cle = parseInt(prompt('votre cle'))
+        alert(caesar(text, cle));
+        alert(caesarInv(caesar(text, cle), cle))
+      }
+    }
+  </script>
+</body>
+
+</html>
