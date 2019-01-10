@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Events</title>
+</head>
+<body>
+    <div id="details">
+    </div>
+
+    <form>
+        <select name="product" id="product">
+            <option ></option>
+            <option >mug</option>
+            <option >tasse</option>
+            <option >ordinateur portable</option>
+            <option >corbeille</option>
+            <option >téléphone</option>
+        </select>
+
+        <label for="nb">
+            Nombre :
+        </label>
+        <input id="nb" type="number" min="1" max="15000">
+
+        <input type="submit">
+    </form>
+
+    <script>
+        var getProductTag = () => document.getElementById('product');
+        var getNbTag = () => document.getElementById('nb');
+
+        function updateDetails() {
+            console.log('recompute');
+            var nb = getNbTag().value || 0;
+            var product = getProductTag().value;
+
+            document.getElementById('details').innerHTML = nb + ' "' + product + '" selectionné(s)';
+        }
+
+
+        function init() {
+            var nbTag      = document.getElementById('nb')
+            var productTag = getProductTag()
+
+            // Add event on nbTag.
+            nbTag.addEventListener('change',
+                (event) => event.target.value = Math.max(parseInt(event.target.min), event.target.value))
+            nbTag.addEventListener('change', (event) => updateDetails(event.target))
+
+            // Add event on productTag.
+            productTag.addEventListener('change', updateDetails)
+
+            document.querySelector('form').addEventListener('submit', event => {
+                event.preventDefault()
+
+                var nbTag = getNbTag()
+                var nb = nbTag.value
+
+                if (!nb) {
+                    nbTag.style.border = '1px solid red'
+                    return;
+                } else {
+                    nbTag.style.border = 'inherit'
+                }
+
+                if (getProductTag().value.trim() === '') {
+                    getProductTag().style.border = '1px solid red'
+                    return;
+                } else {
+                    getProductTag().style.border = 'inherit'
+                }
+
+                alert('Bravo, nous allons débiter votre compte de ' + (600 * parseInt(nb) + ' € revenez quand vous voulez, on adore les pigeons... clients comme vous'))
+            })
+
+            // Force first compute of pricing label.
+            updateDetails(nbTag)
+        }
+
+        init();
+    </script>
+</body>
+</html>
