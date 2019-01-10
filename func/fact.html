@@ -1,11 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>TP fact</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>TP fact</title>
 </head>
+
 <body>
-    <p>Ecrire autant de fonctions possibles (algo différents) pour calculer un factororiel en JS.</p>
+  <p>Ecrire autant de fonctions possibles (algo différents) pour calculer un factororiel en JS.</p>
+
+  <script>
+    function factFor(nb) {
+      var result = nb;
+
+      for (var i = nb - 1; nb > 0; --i) {
+        result *= i;
+      }
+
+      return result;
+    }
+
+    function factRecu(nb) {
+      if (nb > 1) {
+        return nb * factRecu(nb - 1);
+      } else {
+        return 1;
+      }
+    }
+
+    var factRecuArrow = (nb) => nb > 1 ? nb * factRecuArrow(nb - 1) : 1;
+
+    function factFunc1(nb) {
+      var tab = new Array(nb - 1);
+
+      for (var i = nb - 1; nb > 0; --i) {
+        tab.push(i);
+      }
+
+      return tab.reduce((acc, elt) => acc * elt);
+    }
+
+    function factFunc2(nb) {
+      return new Array(nb - 1)
+        .map((_, i) => i + 1)
+        .reduce((acc, elt) => acc * elt);
+    }
+
+    function factFunc3(nb) {
+      return [... Array(nb - 1)]
+        .map((_, i) => i + 1)
+        .reduce((acc, elt) => acc * elt);
+    }
+
+    var fact = nb => [... Array(nb - 1)].map((_, i) => i + 1).reduce((acc, elt) => acc * elt)
+
+    var withLodash = nb => _.range(1, nb).reduce((acc, elt) => acc * elt)
+  </script>
 </body>
+
 </html>
