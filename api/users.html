@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+  <style>
+    .hide {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <p id="loader">Chargement en cours ...</p>
+
+  <article class="hide">
+    <button id="refresh">Raffraichir</button>
+
+    <table>
+      <thead>
+        <th>Nom</th>
+        <th>Email</th>
+        <th>Sexe</th>
+      </thead>
+
+      <tbody>
+
+      </tbody>
+    </table>
+  </article>
+
+  <script src="api.js"></script>
+  <script src="users.js"></script>
+
+  <script>
+    var refreshBtn = document.getElementById('refresh')
+
+    refreshBtn.onclick = refreshUsers
+
+    refreshBtn.click()
+    // refreshUsers()
+  </script>
+</body>
+
+</html>

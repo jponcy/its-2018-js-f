@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Evaluation JS</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Evaluation - JS</h1>
+
+    <h2>Excercices indépendants</h2>
+
+    <p>Cette partie de l'évaluation consiste en la résolution de petits exercices. Toutes ces fonctions seront à réaliser dans un fichier .js qu'il faudra inclure dans ce même fichier. Tous les fichiers seront à envoyer à l'adresse suivante : jonathan.poncy@tactfactory.com
+
+        <ol>
+            <li>créer une fonction affichant 'hello world' en console</li>
+            <li>créer une fonction qui prend un paramètre facultatif et qui écrit en console 'Bonjour tout le monde' si on n'a pas fournit de paramètre, OU 'Bonjour PARAM' ou PARAM sera à remplacer par la valeur du paramètre</li>
+            <li>écrire une fonction qui écrit combien il y a de nombre/chiffre paires entre 1 et l'entier positif passé en paramètre
+                <br>
+                cette question est à réaliser avec les altérnatives suivantes : <ul>
+                    <li>avec une boucle while</li>
+                    <li>avec une boucle do-while</li>
+                    <li>avec une boucle for</li>
+                    <li>en utilisant la fonction reduce</li>
+                </ul>
+            </li>
+            <li>faire en sorte que le clique sur le bouton "add-content" ajoute un paragraphe avec du texte changeant entre les différents cliques, ce paragraphe sevra être ajouté dans "dash".</li>
+        </ol>
+    </p>
+
+    <button id="add-content">Ajouter paragraphe</button>
+    <div id="dash"></div>
+
+    <h2>Dynamisation d'un formulaire</h2>
+
+    <p>
+        Nous allons maintenant nous intéresser à la dynamisation du formulaire suivant. Chaque question réalisé sera noté même si la précedente n'a pas été réalisée. Les objectifs sont :
+        <ul>
+            <li>
+                l'appel de la fonction getUsers retourne la liste des utillisateurs déjà connus dans notre système. Nous voulons nous servir de cette liste pour effectuer une autocomplétion des informations clients par rapport à son adresse email.
+            </li>
+            <li>
+                le bouton ajouter permettra d'ajouter une ligne de commande dans le tableau
+            </li>
+            <li>le bouton supprimer retirera la ligne de commande dans le tableau</li>
+            <li>
+                le bouton envoyé affichera le résumé de la commande dans une div#details qui remplacera le formulaire. Ce résumé contiendra entre-autre : <ul>
+                    <li>le prix par article (multiplié à la quantité)</li>
+                    <li>le prix total</li>
+                </ul>
+            </li>
+            <li>le bouton reset conservera son traitement par défaut, mais affichera une popup prévenant l'utilisateur de la réussite du reset</li>
+            <li>
+                le prix ne devra plus être modifiable par l'utilisateur mais se renseigné automatiquement par rapport à l'attribut data-price de l'option selectionné
+            </li>
+            <li>
+                si l'utilisateur choisi un produit, on l'empêchera de deselectionner ce derniier (de remettre la valeur vide ; il peut toujours changer de produit)
+            </li>
+            <li>
+                utiliser la fonction getProducts pour remplir la liste des produits displonibles
+            </li>
+        </ul>
+    </p>
+
+    <form>
+
+        <fieldset>
+            <legend>Informations client</legend>
+
+            <label for="client-email">email</label>
+            <input type="text" id="client-email">
+            <br>
+
+            <label for="client-name">nom</label>
+            <input type="text" id="client-name">
+            <br>
+
+            <label for="client-about">about you</label>
+            <textarea name="client-about" id="client-about" cols="30" rows="10"></textarea>
+        </fieldset>
+
+        <fieldset>
+            <legend>Produits achetés</legend>
+
+            <button id="add-command-line">Ajouter</button>
+            <table>
+                <thead>
+                    <tr>
+                        <th>product</th>
+                        <th>quantité</th>
+                        <th>price</th>
+                        <th>actions</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>
+                            <select name="product">
+                                <option value=""></option>
+                                <option data-price="154" value="1">Stylo bleu</option>
+                                <option data-price="1" value="2">Gomme</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input type="number" name="quantity">
+                        </td>
+                        <td>
+                            <input type="number" name="price">
+                        </td>
+                        <td>
+                            <button class="delete">Supprimer</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </fieldset>
+
+        <fieldset id="commands">
+            <legend>Finaliser la commande</legend>
+            <input type="reset">
+            <input type="submit">
+        </fieldset>
+    </form>
+
+    <script src="fake_api.js"></script>
+
+    <script src="1.js"></script>
+</body>
+</html>

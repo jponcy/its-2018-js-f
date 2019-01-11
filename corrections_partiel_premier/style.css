@@ -1,0 +1,63 @@
+#add-command-line {
+    background-color: skyblue;
+    width: 200px;
+    padding: 5px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.delete {
+    background-color: red;
+    border-radius: 5px;
+}
+
+table,
+tr {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    margin: auto;
+    text-align: center;
+    width: 32%;
+    border-collapse: collapse;
+    border: 1px solid silver;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+}
+
+label {
+    text-transform: capitalize;
+}
+label::after {
+    content: ' : ';
+}
+
+thead th {
+    background-color: gray;
+    color: white;
+    text-transform: capitalize;
+}
+
+tbody > tr:nth-child(2n) td {
+    background-color: #AFA;
+}
+
+
+form {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    align-content: space-between;
+    justify-content: space-between;
+}
+
+fieldset {
+    width: 48%;
+}
+
+#commands {
+    text-align: center;
+}
